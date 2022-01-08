@@ -17,3 +17,10 @@ model.compile(optimizer = 'adam',
               metrics = ['accuracy'])
 history = model.fit(x_train, y_train, epochs = 3, validation_data = (x_test, y_test), batch_size = 64)
 test_loss, test_acc = model.evaluate(x_train, y_train, batch_size = 64)
+
+plt.plot(history.history['accuracy'], label = 'accuracy')
+plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.ylim([0.5, 1])
+plt.show()
